@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan - Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(107, 107, 205);
+            font-size: 1.01rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 40px 84px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 127px 0;
+            align-items: center;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 2.45rem;
+        }
+
+        .rightSection {
+            width: 30%;
+        }
+
+        .portfolio-image {
+            width: 80%;
+            max-width: 200px;
+            border: 2px solid white;
+            border-radius: 8px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .portfolio-image:hover {
+            filter: grayscale(0%);
+        }
+
+        .purple {
+            color: rgb(120, 107, 228);
+        }
+
+        #element {
+            color: rgb(120, 107, 228);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+        }
+
+        .dynamicUpdateSection {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #dynamicUpdate {
+            font-size: 1.2rem;
+            color: #ccc; /* Initial color */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Darshan's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li> <a href="/">Home</a></li>
+                    <li> <a href="/">About</a></li>
+                    <li> <a href="/">Projects</a></li>
+                    <li> <a href="/">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">Darshan</span>
+                <div>I am a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img class="portfolio-image" src="das.png.jpg" alt="Portfolio Image">
+            </div>
+        </section>
+        <hr>
+        <section class="secondSection">
+            <h1>Past Experience</h1>
+        </section>
+        <section class="dynamicUpdateSection">
+            <h2>Latest Update</h2>
+            <div id="dynamicUpdate"></div>
+        </section>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Web Designer', 'UI/UX Designer'],
+            typeSpeed: 65,
+        });
+
+        // Define the announcement messages
+        var announcements = [
+            "Exciting news! I just launched a new project!",
+            "I'm thrilled to announce a major milestone in my career!",
+            "Stay tuned for upcoming updates and projects!"
+        ];
+
+        // Initialize Typed.js for dynamic update section
+        var typedUpdate = new Typed('#dynamicUpdate', {
+            strings: announcements,
+            typeSpeed: 50, // Speed of typing in milliseconds
+            backSpeed: 20, // Speed of deleting in milliseconds
+            loop: true // Loop the animation
+        });
+    </script>
+</body>
+
