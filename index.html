@@ -15,8 +15,8 @@
         }
 
         body {
-            background-color: rgb(0, 0, 33);
-            color: white;
+            background-color: #0A192F; /* Main background color */
+            color: #FFFFFF; /* Text color */
             font-family: 'Poppins', sans-serif;
         }
 
@@ -25,7 +25,7 @@
             justify-content: space-around;
             align-items: center;
             height: 80px;
-            background-color: rgb(18, 18, 62);
+            background-color: #0A192F; /* Main background color */
         }
 
         nav ul {
@@ -36,22 +36,22 @@
 
         nav ul li {
             list-style: none;
-            margin: 0 23px;
+            margin: 0 40px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: white;
+            color: #FFFFFF; /* Text color */
         }
 
         nav ul li a:hover {
-            color: rgb(107, 107, 205);
+            color: #FF6B6B; /* Hover color */
             font-size: 1.01rem;
         }
 
         main hr {
             border: 0;
-            background: #9c97f1;
+            background: #FF6B6B; /* Accent color */
             height: 1.2px;
             margin: 40px 84px;
         }
@@ -82,7 +82,7 @@
         .portfolio-image {
             width: 80%;
             max-width: 200px;
-            border: 2px solid white;
+            border: 2px solid #FFFFFF; /* Text color */
             border-radius: 8px;
             filter: grayscale(100%);
             transition: filter 0.3s ease;
@@ -92,12 +92,12 @@
             filter: grayscale(0%);
         }
 
-        .purple {
-            color: rgb(120, 107, 228);
+        .accent {
+            color: #FF6B6B; /* Accent color */
         }
 
         #element {
-            color: rgb(120, 107, 228);
+            color: #FF6B6B; /* Accent color */
         }
 
         .secondSection {
@@ -114,6 +114,20 @@
             font-size: 1.2rem;
             color: #ccc; /* Initial color */
             margin-top: 20px;
+        }
+
+        .button {
+            background-color: #FF8E8E; /* Button color */
+            color: #FFFFFF; /* Text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #B877DB; /* Hover color */
         }
     </style>
 </head>
@@ -135,7 +149,7 @@
     <main>
         <section class="firstSection">
             <div class="leftSection">
-                Hi, My name is <span class="purple">Darshan</span>
+                Hi, My name is <span class="accent">Darshan</span>
                 <div>I am a passionate</div>
                 <span id="element"></span>
             </div>
@@ -145,10 +159,10 @@
         </section>
         <hr>
         <section class="secondSection">
-            <h1>Past Experience</h1>
+            <h1 class="accent">Past Experience</h1>
         </section>
         <section class="dynamicUpdateSection">
-            <h2>Latest Update</h2>
+            <h2 class="accent">Latest Update</h2>
             <div id="dynamicUpdate"></div>
         </section>
     </main>
@@ -176,3 +190,4 @@
     </script>
 </body>
 
+</html>
