@@ -1,0 +1,348 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Add box-sizing for better layout handling */
+}
+
+body {
+    background-color: #0d203e; /* Main background color */
+    color: #FFFFFF; /* Text color */
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: #0c1b31; /* Main background color */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 40px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFFFFF; /* Text color */
+}
+
+nav ul li a:hover {
+    color: #FF6B6B; 
+    font-size: 1.01rem;
+}
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin from the last list item */
+}
+
+main hr {
+    border: 0;
+    background: #FF6B6B; /* Accent color */
+    height: 1.2px;
+    margin: 40px 84px;
+}
+
+.left {
+    font-size: 1.5rem;
+}
+
+.firstSection {
+    display: flex;
+    justify-content: space-around;
+    margin: 120px 0;
+    align-items: center;
+}
+
+.firstSection>div {
+    width: 30%;
+}
+
+.leftSection {
+    font-size: 2.45rem;
+}
+
+.rightSection {
+    width: 30%;
+}
+
+.portfolio-image {
+    width: 100%;
+    max-width: 300px;
+    border: 0.5px solid #FFFFFF; /* Text color */
+    border-radius: 500px;
+    filter: grayscale(100%);
+    transition: filter  1s ease;
+    margin-top: 35px; /* Adjust the top margin */
+    margin-left: 76px; 
+}
+
+.portfolio-image:hover {
+    filter: grayscale(0%);
+}
+
+.portfolio-image.jelly-effect {
+    animation: jelly 0.8s infinite alternate;
+}
+
+.hero-img {
+    background-image: url('portfolio-image.jpg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 3px solid #2d2e32;
+    border-radius: 70% 40% 30% 70%/60% 30% 70% 40%;
+    height: 25rem;
+    width: 25rem;
+    -webkit-animation: morph 8s ease-in-out infinite;
+    animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+
+    50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+
+    to {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+
+.accent {
+    color: #FF6B6B; /* Accent color */
+}
+
+#element {
+    color: #FF6B6B; /* Accent color */
+}
+
+.secondSection {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.dynamicUpdateSection {
+    text-align
+    : center;
+    margin-top: 40px;
+}
+
+#dynamicUpdate {
+    font-size: 1.2rem;
+    color: #ccc; /* Initial color */
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #FF8E8E; /* Button color */
+    color: #FFFFFF; /* Text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #B877DB; /* Hover color */
+}
+
+.thirdSection,
+.fourthSection {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.project,
+.contact-form {
+    margin-top: 20px;
+}
+.icons {
+    position: fixed;
+    top: 445px; /* Adjust the top position as needed */
+    left: 50px;/* Adjust the left position as needed */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: flex-start; 
+    z-index: 999;/* Align items to the start of the container */
+}
+.icons a {
+    color: #bbb; /* Default color */
+    font-size: 18px; /* Adjust icon size */
+    margin-right: 20px; /* Add space between icon and text */
+    transition: color 0.3s ease; /* Add transition effect */
+}
+
+.icons a:hover i {
+    color: #FF6B6B; /* Change color on hover */
+    font-size: 20.12px;
+}
+
+
+.fab.fa-github {
+    color: #bbb; 
+    
+    font-size: 20px; /* Adjust icon size */
+    margin-right: 40px;
+    margin-bottom: 25px; /* Add space between icon and text */
+}
+.fab.fa-linkedin-in {
+    color: #bbb; /* Gray color */
+    font-size: 18px; /* Adjust icon size */
+    margin-right: 20px;
+    margin-bottom: 25px; /* Add space between icon and text */
+}
+.fab.fa-twitter {
+    color: #bbb; /* Gray color */
+    font-size: 18px; /* Adjust icon size */
+    margin-right: 20px;
+    margin-bottom: 25px; /* Add space between icon and text */
+}
+.fab.fa-instagram {
+    color: #bbb; /* Gray color */
+    font-size: 20px; /* Adjust icon size */
+    margin-right: 20px;
+    margin-bottom: 25px; /* Add space between icon and text */
+}
+.vertical-line {
+    width: 1.7px;
+    height: 500px; /* Adjust the height as needed */
+    background-color: #ccc; /* Color of the vertical line */
+    position: fixed;
+    top: 640px; /* Adjust the top position to align with the bottom of the icons */
+    left: 55px; /* Adjust the left position to align with the end of the icons */
+}
+.vertical-line2 {
+    width: 1.7px;
+    height: 500px; /* Adjust the height as needed */
+    background-color: #ccc; /* Color of the vertical line */
+    position: fixed;
+    top: 637px; /* Adjust the top position to align with the bottom of the icons */
+    right: 55px; /* Adjust the right position to align with the end of the email */
+    z-index: 998; /* Ensure the line appears below other content */
+}
+
+
+.contact-info {
+    position: fixed;
+    top: 357px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 999; /* Ensure the contact info appears above other content */
+    color: #fff; /* Text color */
+}
+.contact-info::after {
+    content: "";
+    width: 1.7px;
+    height: 500px; /* Adjust the height as needed */
+    background-color: #ccc; /* Color of the vertical line */
+    position: absolute;
+    top: 0;
+    right: -30px; /* Adjust the position as needed */
+    z-index: 998; /* Ensure the line appears below other content */
+}
+
+.contact-info p {
+    writing-mode: vertical-lr; /* Set vertical text orientation */
+    text-align: center; /* Center the text horizontally */
+    margin-right: 20px;
+    font-size: 13.7px;
+    color:#FF6B6B; /* Adjust spacing from the vertical line */
+}
+ /* Loading screen styles */
+ #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a192f; /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's above other content */
+    transition: opacity 2.0s; /* Smooth transition */
+    opacity: 1; /* Initially visible */
+}
+
+.loader-container {
+    text-align: center;
+}
+
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.4s linear infinite; /* Spin animation with 2 seconds duration */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: #f3f3f3; /* Light grey */
+    margin-top: 20px;
+}
+
+/* Hide loading screen when body has loaded class */
+body.loaded #loading-screen {
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events */
+}
+/* Initially hide the project details */
+#project-details {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Display the project details when visible class is added */
+#project-details.visible {
+    display: block;
+}
+
+#project-details button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+#project-details h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#project-details p {
+    font-size: 18px;
+}
+
+/* Add more styles as needed */
+
+
+

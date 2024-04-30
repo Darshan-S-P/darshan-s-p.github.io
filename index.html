@@ -5,183 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darshan - Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box; /* Add box-sizing for better layout handling */
-        }
-
-        body {
-            background-color: #0d203e; /* Main background color */
-            color: #FFFFFF; /* Text color */
-            font-family: 'Poppins', sans-serif;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 100px;
-            background-color: #0c1b31; /* Main background color */
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-
-        }
-
-        nav ul li {
-            list-style: none;
-            margin: 0 40px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #FFFFFF; /* Text color */
-        }
-
-        nav ul li a:hover {
-            color: #FF6B6B; 
-            font-size: 1.01rem;
-        }
-        nav ul li:last-child {
-            margin-right: 0; /* Remove margin from the last list item */
-        }
-
-        main hr {
-            border: 0;
-            background: #FF6B6B; /* Accent color */
-            height: 1.2px;
-            margin: 40px 84px;
-        }
-
-        .left {
-            font-size: 1.5rem;
-        }
-
-        .firstSection {
-            display: flex;
-            justify-content: space-around;
-            margin: 127px 0;
-            align-items: center;
-        }
-
-        .firstSection>div {
-            width: 30%;
-        }
-
-        .leftSection {
-            font-size: 2.45rem;
-        }
-
-        .rightSection {
-            width: 30%;
-        }
-
-        .portfolio-image {
-            width: 100%;
-            max-width: 300px;
-            border: 0.5px solid #FFFFFF; /* Text color */
-            border-radius: 500px;
-            filter: grayscale(100%);
-            transition: filter  1s ease;
-            margin-top: 35px; /* Adjust the top margin */
-            margin-left: 76px; 
-        }
-
-        .portfolio-image:hover {
-            filter: grayscale(0%);
-        }
-
-        .portfolio-image.jelly-effect {
-            animation: jelly 0.8s infinite alternate;
-        }
-
-        .hero-img {
-            background-image: url('das.png.jpg');
-            background-position: 50%;
-            background-repeat: no-repeat;
-            background-size: cover;
-            border: 3px solid #2d2e32;
-            border-radius: 70% 40% 30% 70%/60% 30% 70% 40%;
-            height: 25rem;
-            width: 25rem;
-            -webkit-animation: morph 8s ease-in-out infinite;
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% {
-                border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-            }
-
-            50% {
-                border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
-            }
-
-            to {
-                border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
-            }
-        }
-
-        .accent {
-            color: #FF6B6B; /* Accent color */
-        }
-
-        #element {
-            color: #FF6B6B; /* Accent color */
-        }
-
-        .secondSection {
-            max-width: 80vw;
-            margin: auto;
-        }
-
-        .dynamicUpdateSection {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        #dynamicUpdate {
-            font-size: 1.2rem;
-            color: #ccc; /* Initial color */
-            margin-top: 20px;
-        }
-
-        .button {
-            background-color: #FF8E8E; /* Button color */
-            color: #FFFFFF; /* Text color */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #B877DB; /* Hover color */
-        }
-
-        .thirdSection,
-        .fourthSection {
-            max-width: 80vw;
-            margin: auto;
-        }
-
-        .project,
-        .contact-form {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <div id="loading-screen">
+        <div class="loader-container">
+            <div class="loader"></div> <!-- Loader animation -->
+            <p class="loading-text">Loading...</p> <!-- Loading text -->
+        </div>
+    </div>
     <header>
         <nav>
             <div class="left">Darshan's Portfolio</div>
@@ -191,11 +28,26 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact Me</a></li>
-                    <li><a href="Resume (5).pdf" download>Resume</a></li>
+                    <li><a href="resume.pdf" download>Resume</a></li>
                 </ul>
             </div>
         </nav>
+        <div class="loader-wrapper">
+            <div class="loader"></div>
+        </div>
+        <div class="icons">
+            <a href="https://github.com/Darshan-S-P" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/darshan-sp" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/your_username" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/darshan_s_p_007" target="_blank"><i class="fab fa-instagram"></i></a>
+            <div class="vertical-line"></div>
+            <div class="vertical-line2"></div>
+        </div>
+        <div class="contact-info">
+            <p>darshanspdarshu6172@gmail.com</p>
+        </div>
     </header>
+
     <main>
         <section id="home" class="firstSection">
             <div class="leftSection">
@@ -204,29 +56,35 @@
                 <span id="element"></span>
             </div>
             <div class="rightSection">
-                <!-- Adding the hero image with the class 'hero-img' -->
                 <div class="hero-img"></div>
             </div>
         </section>
-        <hr>
+        
         <section id="about" class="secondSection">
             <h1 class="accent">About Me</h1>
             <p>Welcome to my portfolio! I'm a dedicated and enthusiastic developer with a passion for creating innovative solutions. With a background in web development and design, I strive to deliver high-quality projects that exceed expectations. My skills include HTML, CSS, JavaScript, and various frameworks and libraries.</p>
         </section>
-        <hr>
-        <section  id="projects" class="thirdSection">
+        
+        <section id="projects" class="thirdSection">
             <h1 class="accent">Projects</h1>
-            <div class="project">
+            <div class="project" onclick="showProjectDetails(1)">
                 <h2>Project 1</h2>
                 <p>Description of project 1.</p>
             </div>
-            <div class="project">
+            <div class="project" onclick="showProjectDetails(2)">
                 <h2>Project 2</h2>
                 <p>Description of project 2.</p>
             </div>
-            <!-- Add more project entries as needed -->
         </section>
-        <hr>
+        
+        <section id="project-details" class="hidden">
+            <button onclick="hideProjectDetails()">Close</button>
+            <h2 id="project-title">Project Title</h2>
+            <p id="project-description">Project Description</p>
+            <!-- Add more details as needed -->
+        </section>
+        
+        
         <section id="contact" class="fourthSection">
             <h1 class="accent">Contact Me</h1>
             <p>Feel free to reach out to me for any inquiries or collaboration opportunities. You can contact me  via email at example@example.com or connect with me on LinkedIn.</p>
@@ -235,6 +93,7 @@
             </div>
         </section>
     </main>
+
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
@@ -246,7 +105,6 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -255,16 +113,52 @@
     </script>
     <script>
         var portfolioImage = document.getElementById('portfolio-image');
-    
         portfolioImage.addEventListener('mouseenter', function() {
             portfolioImage.classList.add('jelly-effect');
         });
-    
         portfolioImage.addEventListener('animationend', function() {
             portfolioImage.classList.remove('jelly-effect');
         });
     </script>
+    <script>
+        window.addEventListener('load', function() {
+            // Remove the loader and show the webpage content
+            document.querySelector('.loader-wrapper').style.display = 'none';
+            document.body.classList.add('loaded');
+        });
+        
+    </script>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+    <script>
+        function showProjectDetails(projectId) {
+            const projectTitle = document.getElementById('project-title');
+            const projectDescription = document.getElementById('project-description');
+            
+            if (projectId === 1) {
+                projectTitle.textContent = "Project 1";
+                projectDescription.textContent = "Description of Project 1.";
+                // Add more details as needed
+            } else if (projectId === 2) {
+                projectTitle.textContent = "Project 2";
+                projectDescription.textContent = "Description of Project 2.";
+                // Add more details as needed
+            }
+            
+            const projectDetails = document.getElementById('project-details');
+            projectDetails.classList.add('visible');
+        }
+    
+        function hideProjectDetails() {
+            const projectDetails = document.getElementById('project-details');
+            projectDetails.classList.remove('visible');
+        }
+    </script>
+    
+    
 </body>
 
 </html>
-
