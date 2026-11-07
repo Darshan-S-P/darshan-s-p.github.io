@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Bot, Menu, X } from "lucide-react";
+import { Bot, Menu, X, FileText } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 
 export default function Navbar({ onOpenChat }: { onOpenChat: () => void }) {
@@ -65,6 +65,16 @@ export default function Navbar({ onOpenChat }: { onOpenChat: () => void }) {
 
         {/* Action CTAs */}
         <div className="hidden sm:flex items-center gap-3">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-1.5 rounded-xl text-xs font-mono text-gray-300 hover:text-white glass-panel border border-white/10 hover:border-cyan-400 flex items-center gap-1.5 transition-colors cursor-pointer"
+          >
+            <FileText className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Resume</span>
+          </a>
+
           <button
             onClick={onOpenChat}
             className="px-3.5 py-1.5 rounded-xl text-xs font-mono text-cyan-300 glass-panel border border-cyan-500/30 hover:border-cyan-400 flex items-center gap-1.5 cursor-pointer transition-colors"
