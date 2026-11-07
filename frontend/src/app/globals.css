@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #08090d;
+  --foreground: #f0f4fc;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 17, 24, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 26, 38, 0.85);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(0, 242, 254, 0.2);
+}
+
+.glass-card {
+  background: rgba(18, 21, 31, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Cyber CRT Scanline Effect for 3D Terminal */
+.cyber-terminal {
+  background: radial-gradient(circle at center, #071510 0%, #030806 100%);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  box-shadow: inset 0 0 40px rgba(0, 255, 136, 0.05), 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+.cyber-terminal-text {
+  font-family: "Courier New", Courier, monospace;
+  text-shadow: 0 0 6px rgba(0, 255, 136, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08090d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2438;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f2fe;
+}

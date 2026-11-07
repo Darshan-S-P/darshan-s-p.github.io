@@ -1,0 +1,50 @@
+[
+  {
+    "id": "techcrafter-swe",
+    "role": "Software Engineer",
+    "company": "TechCrafter.cps Pvt Ltd.",
+    "period": "Aug 2025 – Sep 2026",
+    "location": "Bengaluru, India",
+    "type": "Full-Time",
+    "color": "#00f2fe",
+    "summary": "Architected an AI-assisted HTS tariff classification engine for 4,500+ pages of legal tariff codes using hierarchical retrieval and structured LLM outputs.",
+    "achievements": [
+      "Engineered hybrid retrieval pipeline combining lexical BM25 and semantic embeddings with RRF reranking.",
+      "Developed backend traversal logic handling direct and ambiguous matches, eliminating 68% of unnecessary LLM candidate expansion.",
+      "Built high-throughput microservices using FastAPI and PostgreSQL, containerized via Docker for cloud deployment."
+    ],
+    "skills": ["Python", "FastAPI", "PostgreSQL", "BM25", "Hybrid Retrieval", "LLMs", "RRF", "Docker"]
+  },
+  {
+    "id": "techcrafter-intern",
+    "role": "Software Engineering Intern",
+    "company": "TechCrafter.cps Pvt Ltd.",
+    "period": "May 2025 – Aug 2025",
+    "location": "Bengaluru, India",
+    "type": "Internship",
+    "color": "#38bdf8",
+    "summary": "Engineered automated data ingestion and operational telemetry pipelines for supply-chain platforms.",
+    "achievements": [
+      "Built Python-based ETL pipelines integrating external APIs and operational telemetry manifests.",
+      "Developed backend REST services with Python & PostgreSQL, containerized with Docker and deployed onto AWS EC2.",
+      "Engineered batch and real-time validation workflows ensuring high data integrity across multi-source client feeds."
+    ],
+    "skills": ["Python", "FastAPI", "PostgreSQL", "Docker", "AWS EC2", "ETL Pipelines"]
+  },
+  {
+    "id": "quation-intern",
+    "role": "Backend Developer Intern",
+    "company": "Quation Solutions Pvt Ltd.",
+    "period": "Sep 2024 – Apr 2025",
+    "location": "Bengaluru, India",
+    "type": "Internship",
+    "color": "#10b981",
+    "summary": "Developed distributed computer vision APIs and deep learning crowd counting pipelines running on Azure GPU Virtual Machines.",
+    "achievements": [
+      "Developed and maintained FastAPI REST APIs for computer vision analytics integrated with PostgreSQL.",
+      "Trained and deployed YOLOv8 and CSRNet models for real-time people counting and crowd-density estimation over multiple RTSP camera feeds.",
+      "Configured Azure Virtual Machines with NVIDIA CUDA GPU acceleration and HLS streaming for browser-based monitoring."
+    ],
+    "skills": ["Python", "FastAPI", "YOLOv8", "CSRNet", "OpenCV", "PyTorch", "CUDA", "Azure GPU VMs", "HLS"]
+  }
+]

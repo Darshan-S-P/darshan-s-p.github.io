@@ -1,0 +1,121 @@
+{
+  "name": "Darshan SP",
+  "title": "Software Engineer & AI/ML Systems Specialist",
+  "location": "Bengaluru, Karnataka, India",
+  "contact": {
+    "email": "darshanspdarshu6172@gmail.com",
+    "phone": "+91 8147769141",
+    "linkedin": "https://linkedin.com/in/darshan-sp",
+    "github": "https://github.com/Darshan-S-P"
+  },
+  "summary": "Software Engineer with 1+ year of hands-on experience building Python-based backend and full-stack applications. Strong expertise in Python, FastAPI, PostgreSQL, REST APIs, Docker, AWS, and data processing, with practical exposure to frontend development using Angular and TypeScript. Deeply experienced in applying AI/ML, LLM-based techniques, hybrid retrieval (BM25 + vector search), and real-time computer vision to real-world software systems.",
+  "education": [
+    {
+      "institution": "Jyothy Institute Of Technology",
+      "degree": "Bachelor of Engineering (Computer Science & Engineering)",
+      "duration": "Nov 2021 – May 2025",
+      "cgpa": "8.7 / 10.0",
+      "location": "Bengaluru, India"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "company": "TechCrafter.cps Pvt Ltd.",
+      "period": "Aug 2025 – Sep 2026",
+      "location": "Bengaluru, India",
+      "highlights": [
+        "Architected an AI-assisted HTS (Harmonized Tariff Schedule) classification system involving hierarchical classification, retrieval, and structured decision workflows.",
+        "Engineered a production hybrid retrieval pipeline combining lexical and semantic retrieval with BM25 reranking to identify relevant HTS candidates from complex product descriptions.",
+        "Developed and evaluated backend workflows for hierarchical candidate traversal, handling direct matches and ambiguous cases while minimizing unnecessary candidate expansion.",
+        "Developed high-throughput Python backend components using FastAPI and PostgreSQL, integrating document processing, retrieval services, LLM inference, and structured outputs."
+      ],
+      "technologies": ["Python", "FastAPI", "PostgreSQL", "BM25", "Hybrid Retrieval", "LLMs", "RRF", "Docker"]
+    },
+    {
+      "role": "Software Engineering Intern",
+      "company": "TechCrafter.cps Pvt Ltd.",
+      "period": "May 2025 – Aug 2025",
+      "location": "Bengaluru, India",
+      "highlights": [
+        "Built Python-based data ingestion and processing pipelines integrating external APIs and operational data sources for supply-chain applications.",
+        "Developed backend services using Python and PostgreSQL, and containerized application components using Docker for deployment on AWS EC2.",
+        "Engineered batch and real-time data processing workflows, including data transformation, validation, and integration of multiple external data sources."
+      ],
+      "technologies": ["Python", "FastAPI", "PostgreSQL", "Docker", "AWS EC2", "Data Pipelines"]
+    },
+    {
+      "role": "Backend Developer Intern",
+      "company": "Quation Solutions Pvt Ltd.",
+      "period": "Sep 2024 – Apr 2025",
+      "location": "Bengaluru, India",
+      "highlights": [
+        "Developed and maintained FastAPI REST APIs for real-time computer vision applications and integrated PostgreSQL for application data management.",
+        "Engineered pipelines utilizing YOLOv8, CSRNet, OpenCV, and PyTorch for people counting, object tracking, and crowd-density analysis across multiple RTSP camera streams.",
+        "Deployed Python backend and deep-learning workloads using Docker and Azure Virtual Machines with NVIDIA CUDA-enabled GPU infrastructure, integrating HLS streaming for browser monitoring."
+      ],
+      "technologies": ["Python", "FastAPI", "YOLOv8", "CSRNet", "OpenCV", "PyTorch", "CUDA", "Azure GPU VMs", "Docker", "HLS"]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "C++", "JavaScript", "TypeScript", "SQL"],
+    "genai_llm": [
+      "LLM APIs & Prompt Engineering",
+      "Structured LLM Outputs",
+      "LLM-based Classification",
+      "Hybrid Retrieval (BM25 + Semantic)",
+      "Reciprocal Rank Fusion (RRF)",
+      "Vector Embeddings & ChromaDB",
+      "LangChain & LangGraph"
+    ],
+    "ai_ml_cv": [
+      "PyTorch",
+      "TensorFlow",
+      "YOLOv8 Object Detection",
+      "CSRNet Crowd Density",
+      "OpenCV Computer Vision",
+      "NumPy & Pandas"
+    ],
+    "backend_data": [
+      "FastAPI REST APIs",
+      "PostgreSQL",
+      "SQLAlchemy ORM",
+      "Data Ingestion & ETL Pipelines",
+      "HLS Live Video Streaming"
+    ],
+    "cloud_devops": [
+      "AWS EC2 & S3",
+      "Azure GPU Virtual Machines",
+      "Docker Containerization",
+      "Git & GitHub Actions CI/CD",
+      "Linux / Red Hat Enterprise Linux (RHCSA)"
+    ]
+  },
+  "certifications": [
+    {
+      "name": "Stanford – Supervised Machine Learning: Regression and Classification",
+      "issuer": "Coursera / Stanford Online",
+      "date": "Aug 2025"
+    },
+    {
+      "name": "Internship Completion Certificate",
+      "issuer": "Quations Solutions Pvt. Ltd.",
+      "date": "Apr 2025"
+    },
+    {
+      "name": "RHCSA – EX200 (Red Hat Certified System Administrator)",
+      "issuer": "Red Hat",
+      "date": "Dec 2023"
+    },
+    {
+      "name": "Introduction to Cybersecurity and Attacks",
+      "issuer": "IBM",
+      "date": "May 2023"
+    },
+    {
+      "name": "Smart India Hackathon – 3rd Place among 25 Inter-College Teams",
+      "issuer": "Smart India Hackathon",
+      "date": "Oct 2023"
+    }
+  ]
+}

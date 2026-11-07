@@ -1,0 +1,132 @@
+[
+  {
+    "id": "hts-tariff-pipeline",
+    "title": "HTS Tariff Classification & GenAI RAG Pipeline",
+    "subtitle": "Hierarchical Legal Document Classification with Hybrid Retrieval (BM25 + RRF)",
+    "category": "Generative AI & RAG",
+    "period": "Aug 2025 – Sep 2026",
+    "company": "TechCrafter.cps Pvt Ltd.",
+    "description": "Production-grade AI-assisted tariff classification engine processing 4,500+ pages of the U.S. Harmonized Tariff Schedule. Combines lexical BM25 and dense vector embeddings with Reciprocal Rank Fusion (RRF) and General Rules of Interpretation (GRI) matching.",
+    "architecture": "Client Query → Query Rewriting → Hybrid Search (BM25 + Chroma Embeddings) → RRF Rank Fusion → Hierarchical Node Traversal → GRI Legal Note Evaluator → Structured LLM Output",
+    "metrics": [
+      { "label": "Legal Corpus", "value": "4,500+ Pages" },
+      { "label": "Traversal Optimization", "value": "68% Less Redundant LLM Calls" },
+      { "label": "Search Strategy", "value": "Hybrid BM25 + RRF" }
+    ],
+    "highlights": [
+      "Engineered multi-stage classification combining query rewriting, lexical BM25, and semantic vector retrieval.",
+      "Optimized candidate selection by preserving match scores across hierarchical levels, preventing unnecessary tree expansion.",
+      "Extracted and chunked legal Section and Chapter notes to feed strict context to LLM reasoning."
+    ],
+    "tech": ["Python", "FastAPI", "PostgreSQL", "BM25", "RRF", "ChromaDB", "Docker", "LLMs"],
+    "github": "https://github.com/Darshan-S-P/hts-tariff-rag-pipeline",
+    "demo": "https://hts-tariff.preview.dev",
+    "gradient": "from-cyan-500/20 via-blue-500/10 to-indigo-500/20",
+    "accentColor": "#00f2fe",
+    "featured": true
+  },
+  {
+    "id": "cv-people-counter",
+    "title": "Real-Time Multi-Stream Crowd Analytics & People Counter",
+    "subtitle": "Distributed Computer Vision System with YOLOv8, CSRNet & HLS Streaming",
+    "category": "Computer Vision & Deep Learning",
+    "period": "Sep 2024 – Apr 2025",
+    "company": "Quation Solutions Pvt Ltd.",
+    "description": "High-throughput real-time video analytics platform detecting, counting, and analyzing crowd density across multiple simultaneous RTSP camera streams using CUDA-accelerated deep learning models.",
+    "architecture": "RTSP IP Cameras → OpenCV Capture → YOLOv8 Tracking & CSRNet Density (NVIDIA CUDA) → FastAPI Stream Engine → PostgreSQL → HLS Browser Player",
+    "metrics": [
+      { "label": "Inference Latency", "value": "< 18ms per frame" },
+      { "label": "Concurrent Streams", "value": "8+ RTSP Feeds" },
+      { "label": "Model Stack", "value": "YOLOv8 + CSRNet" }
+    ],
+    "highlights": [
+      "Engineered deep learning crowd density estimation pipeline using CSRNet and YOLOv8 object tracking.",
+      "Integrated FastAPI backend with HLS (HTTP Live Streaming) for sub-second browser-based surveillance monitoring.",
+      "Deployed containerized pipelines onto Azure GPU Virtual Machines with NVIDIA CUDA acceleration."
+    ],
+    "tech": ["Python", "FastAPI", "YOLOv8", "CSRNet", "PyTorch", "OpenCV", "CUDA", "Azure GPU VMs", "Docker"],
+    "github": "https://github.com/Darshan-S-P/realtime-crowd-counter",
+    "demo": "https://crowd-vision.preview.dev",
+    "gradient": "from-emerald-500/20 via-teal-500/10 to-cyan-500/20",
+    "accentColor": "#10b981",
+    "featured": true
+  },
+  {
+    "id": "resichain-logistics",
+    "title": "ResiChain – Resilient Supply Chain & Logistics Platform",
+    "subtitle": "Containerized Full-Stack Operations Engine with Automated Ingestion & Tracking",
+    "category": "Full-Stack Backend & Cloud",
+    "period": "May 2025 – Aug 2025",
+    "company": "TechCrafter.cps Pvt Ltd.",
+    "description": "Enterprise logistics web platform managing shipment tracking, port logistics, and arrival ETAs. Automates heterogeneous Excel data ingestion, cleanses operational telemetry, and serves real-time performance analytics.",
+    "architecture": "Angular Client → FastAPI REST API → SQLAlchemy Engine → PostgreSQL Database → Automated Excel Ingestion Cron → AWS EC2 + S3",
+    "metrics": [
+      { "label": "File Ingestion Speed", "value": "50k rows in < 2.4s" },
+      { "label": "Deployment", "value": "AWS EC2 + SSL + Docker" },
+      { "label": "Uptime", "value": "99.9% Production" }
+    ],
+    "highlights": [
+      "Developed full-stack application using Angular, FastAPI, SQLAlchemy, and PostgreSQL.",
+      "Containerized application components via Docker and automated SSL certificate deployment on AWS EC2.",
+      "Implemented automated ingestion and validation of messy client-provided Excel manifests with alerting workflows."
+    ],
+    "tech": ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "Docker", "AWS EC2", "Angular", "TypeScript"],
+    "github": "https://github.com/Darshan-S-P/resichain-logistics",
+    "demo": "https://resichain.preview.dev",
+    "gradient": "from-amber-500/20 via-orange-500/10 to-red-500/20",
+    "accentColor": "#f59e0b",
+    "featured": true
+  },
+  {
+    "id": "solana-token-hub",
+    "title": "Solana Web3 Token Hub & Analytics",
+    "subtitle": "Decentralized Blockchain Explorer and Token Utility DApp",
+    "category": "Web3 & Distributed Systems",
+    "period": "Aug 2024",
+    "company": "Independent Project",
+    "description": "High-performance decentralized Web3 dashboard interacting directly with Solana RPC nodes using Next.js and Solana Web3.js to enable instantaneous token swaps, mint monitoring, and on-chain analytics.",
+    "architecture": "Next.js 14 → Solana Web3.js SDK → Public Solana RPC Mainnet Cluster → Client-side Wallet Adapters",
+    "metrics": [
+      { "label": "RPC Query Latency", "value": "< 400ms" },
+      { "label": "Backend Dependency", "value": "0 (Serverless Web3)" },
+      { "label": "Ecosystem", "value": "Solana SPL" }
+    ],
+    "highlights": [
+      "Built client-driven dApp using Next.js and TypeScript communicating directly with Solana blockchain clusters.",
+      "Engineered SPL token account balance parsing, transfer instructions, and real-time transaction signatures.",
+      "Designed responsive glassmorphism dark UI with live crypto transaction feeds."
+    ],
+    "tech": ["Next.js", "TypeScript", "Solana Web3.js", "Tailwind CSS"],
+    "github": "https://github.com/Darshan-S-P/solana-token-hub",
+    "demo": "https://solana-hub.preview.dev",
+    "gradient": "from-purple-500/20 via-violet-500/10 to-pink-500/20",
+    "accentColor": "#a855f7",
+    "featured": true
+  },
+  {
+    "id": "irctc-voice-assistant",
+    "title": "AI Voice-Assisted IRCTC Booking Agent",
+    "subtitle": "Award-Winning Multilingual Voice Chatbot (3rd Place Smart India Hackathon)",
+    "category": "NLP & Voice AI",
+    "period": "Oct 2023",
+    "company": "Smart India Hackathon",
+    "description": "Multilingual voice-driven conversational agent allowing travelers to check train schedules, seat availability, and navigate rail booking operations using natural speech commands.",
+    "architecture": "Microphone Audio → Speech-to-Text STT → Intent & Entity Parser (NLP) → IRCTC API Connector → Text-to-Speech TTS",
+    "metrics": [
+      { "label": "Hackathon Rank", "value": "3rd out of 25 Teams" },
+      { "label": "Voice Latency", "value": "< 1.2s roundtrip" },
+      { "label": "Recognition", "value": "Inter-College Winner" }
+    ],
+    "highlights": [
+      "Awarded 3rd place among 25 university teams in the Smart India Hackathon internal finals.",
+      "Implemented speech recognition and voice intent parsing for non-technical users accessing railway portals.",
+      "Engineered conversational error-recovery when station names were phonetically ambiguous."
+    ],
+    "tech": ["Python", "NLP", "Speech Recognition", "REST APIs", "NLTK"],
+    "github": "https://github.com/Darshan-S-P/irctc-voice-ai",
+    "demo": "https://voice-irctc.preview.dev",
+    "gradient": "from-blue-500/20 via-indigo-500/10 to-violet-500/20",
+    "accentColor": "#3b82f6",
+    "featured": false
+  }
+]

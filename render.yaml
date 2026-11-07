@@ -1,0 +1,22 @@
+services:
+  # FastAPI LangGraph Backend Service
+  - type: web
+    name: darshan-portfolio-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt && python ingest.py"
+    startCommand: "uvicorn backend.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        value: https://darshan-portfolio.vercel.app,http://localhost:3000
+      - key: GROQ_API_KEY
+        sync: false

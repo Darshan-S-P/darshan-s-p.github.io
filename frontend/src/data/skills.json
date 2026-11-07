@@ -1,0 +1,88 @@
+{
+  "categories": [
+    {
+      "name": "Generative AI & LLMs",
+      "icon": "Cpu",
+      "color": "from-cyan-500 to-blue-600",
+      "skills": [
+        { "name": "LangChain & LangGraph", "level": 92 },
+        { "name": "Hybrid Retrieval (BM25 + Semantic)", "level": 95 },
+        { "name": "RRF (Reciprocal Rank Fusion)", "level": 90 },
+        { "name": "Structured LLM Outputs & JSON Schemas", "level": 94 },
+        { "name": "ChromaDB & Vector Embeddings", "level": 90 },
+        { "name": "Prompt Engineering & Guardrails", "level": 92 }
+      ]
+    },
+    {
+      "name": "AI, ML & Computer Vision",
+      "icon": "Eye",
+      "color": "from-purple-500 to-indigo-600",
+      "skills": [
+        { "name": "PyTorch & TensorFlow", "level": 88 },
+        { "name": "YOLOv8 Object Detection", "level": 92 },
+        { "name": "CSRNet Crowd Density Analysis", "level": 90 },
+        { "name": "OpenCV Real-time Video Capture", "level": 90 },
+        { "name": "NVIDIA CUDA Acceleration", "level": 85 },
+        { "name": "NumPy & Pandas Data Science", "level": 90 }
+      ]
+    },
+    {
+      "name": "Backend Architecture & APIs",
+      "icon": "Server",
+      "color": "from-emerald-500 to-teal-600",
+      "skills": [
+        { "name": "FastAPI (Async Microservices)", "level": 96 },
+        { "name": "PostgreSQL & Query Optimization", "level": 90 },
+        { "name": "SQLAlchemy ORM & Migrations", "level": 90 },
+        { "name": "REST API Design & SSE Streaming", "level": 95 },
+        { "name": "HLS Video Streaming Integration", "level": 86 },
+        { "name": "Data Pipelines & ETL Ingestion", "level": 92 }
+      ]
+    },
+    {
+      "name": "Cloud, DevOps & Systems",
+      "icon": "Cloud",
+      "color": "from-amber-500 to-orange-600",
+      "skills": [
+        { "name": "Docker & Containerization", "level": 94 },
+        { "name": "AWS EC2 & S3 Deployment", "level": 88 },
+        { "name": "Azure GPU Virtual Machines", "level": 88 },
+        { "name": "Linux / RHCSA Red Hat Certified", "level": 95 },
+        { "name": "Git & GitHub Actions CI/CD", "level": 90 },
+        { "name": "SSL & Secure Networking", "level": 88 }
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Stanford – Supervised Machine Learning: Regression and Classification",
+      "issuer": "Coursera / Stanford Online",
+      "date": "Aug 2025",
+      "badge": "Machine Learning"
+    },
+    {
+      "name": "RHCSA – EX200 (Red Hat Certified System Administrator)",
+      "issuer": "Red Hat Inc.",
+      "date": "Dec 2023",
+      "badge": "Enterprise Linux"
+    },
+    {
+      "name": "Internship Completion Certificate",
+      "issuer": "Quations Solutions Pvt. Ltd.",
+      "date": "Apr 2025",
+      "badge": "Computer Vision"
+    },
+    {
+      "name": "Introduction to Cybersecurity and Attacks",
+      "issuer": "IBM",
+      "date": "May 2023",
+      "badge": "Security"
+    },
+    {
+      "name": "Smart India Hackathon – 3rd Place out of 25 Teams",
+      "issuer": "Ministry of Education / AICTE",
+      "date": "Oct 2023",
+      "badge": "National Finalist"
+    }
+  ]
+}
