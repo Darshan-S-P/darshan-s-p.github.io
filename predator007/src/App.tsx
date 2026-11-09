@@ -7,75 +7,137 @@ import NeonSignposts from './components/hud/NeonSignposts';
 import AnimeBillboard from './components/hud/AnimeBillboard';
 import RadarMinimap from './components/hud/RadarMinimap';
 import SpeedometerHUD from './components/hud/SpeedometerHUD';
+import DestinationPrompt from './components/hud/DestinationPrompt';
+import OnScreenDriveControls from './components/hud/OnScreenDriveControls';
 import DestinationModal from './components/modals/DestinationModal';
+import { carState } from './components/3d/CarStore';
 import type { SectionId } from './types';
 
 export default function App() {
-  const [terminalOpen, setTerminalOpen] = useState(true);
+  const [terminalOpen, setTerminalOpen] = useState(false);
   const [activeDestination, setActiveDestination] = useState<SectionId | null>(null);
-  const [speed, setSpeed] = useState(87);
 
-  // Global Keyboard Navigation (TAB to toggle terminal, ESC to close modal, WASD driving simulation)
+  // Global Keyboard Navigation & Wheel Scroll Driving
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // TAB: Toggle Linux Terminal
+      // Don't intercept driving keys if user is actively typing in the terminal input
+      const isInputActive = ['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName);
+
       if (e.key === 'Tab') {
         e.preventDefault();
         setTerminalOpen((prev) => !prev);
+        return;
       }
-      // ESC: Close Modal
+
       if (e.key === 'Escape') {
         setActiveDestination(null);
+        return;
       }
-      // W key: Accelerate simulation
-      if (e.key.toLowerCase() === 'w') {
-        setSpeed((prev) => Math.min(185, prev + 6));
+
+      // 'E' Key: Interact / Open Destination
+      if ((e.key === 'e' || e.key === 'E') && !isInputActive) {
+        if (carState.nearbyGate) {
+          setActiveDestination(carState.nearbyGate.id);
+        }
+        return;
       }
-      // S key: Decelerate simulation
-      if (e.key.toLowerCase() === 's') {
-        setSpeed((prev) => Math.max(0, prev - 8));
+
+      if (isInputActive) return;
+
+      // WASD / Arrow Keys for Driving
+      const key = e.key.toLowerCase();
+      if (key === 'w' || e.key === 'ArrowUp') {
+        carState.keys.forward = true;
+        carState.targetGateZ = null; // cancel autopilot on manual input
+      } else if (key === 's' || e.key === 'ArrowDown') {
+        carState.keys.backward = true;
+        carState.targetGateZ = null;
+      } else if (key === 'a' || e.key === 'ArrowLeft') {
+        carState.keys.left = true;
+      } else if (key === 'd' || e.key === 'ArrowRight') {
+        carState.keys.right = true;
+      } else if (e.code === 'Space') {
+        carState.keys.brake = true;
       }
     };
 
+    const handleKeyUp = (e: KeyboardEvent) => {
+      const key = e.key.toLowerCase();
+      if (key === 'w' || e.key === 'ArrowUp') carState.keys.forward = false;
+      if (key === 's' || e.key === 'ArrowDown') carState.keys.backward = false;
+      if (key === 'a' || e.key === 'ArrowLeft') carState.keys.left = false;
+      if (key === 'd' || e.key === 'ArrowRight') carState.keys.right = false;
+      if (e.code === 'Space') carState.keys.brake = false;
+    };
+
+    // Scroll Wheel Driving (Scroll down = forward down highway, Scroll up = reverse)
+    const handleWheel = (e: WheelEvent) => {
+      // DeltaY > 0 is scroll down: move car forward
+      if (e.deltaY > 0) {
+        carState.speed = Math.max(-32, carState.speed - 2.8);
+      } else {
+        carState.speed = Math.min(12, carState.speed + 2.8);
+      }
+      carState.targetGateZ = null;
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('wheel', handleWheel, { passive: true });
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('wheel', handleWheel);
+    };
   }, []);
 
-  return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#06070c] crt-overlay">
-      {/* ================= SEPARATE 3D SCENE & CANVAS ================= */}
-      <CyberScene speed={speed} />
+  const handleSelectSection = (id: SectionId) => {
+    carState.driveTo(id);
+    setActiveDestination(id);
+  };
 
-      {/* ================= 2D CYBERPUNK HUD OVERLAYS ================= */}
-      {/* Top Center: Glitch Typography & Callsign */}
+  return (
+    <div className="relative w-screen h-screen overflow-hidden bg-[#06070c] crt-overlay select-none">
+      {/* ================= 3D CYBERPUNK DRIVING WORLD ================= */}
+      <CyberScene />
+
+      {/* ================= 2D HUD OVERLAYS ================= */}
+      {/* Top Header: Glitch Typography */}
       <TopHeader />
 
-      {/* Top Right: System Status Telemetry */}
+      {/* Top Destinations Dock */}
+      <NeonSignposts
+        onSelectDestination={handleSelectSection}
+        activeDestination={activeDestination}
+      />
+
+      {/* Top Right: Live Telemetry */}
       <SystemStatusHUD />
 
       {/* Top Left: Linux Terminal Window */}
       <TerminalWindow
         isOpen={terminalOpen}
         onToggle={() => setTerminalOpen(!terminalOpen)}
-        onSelectSection={(sec) => setActiveDestination(sec)}
+        onSelectSection={handleSelectSection}
       />
 
-      {/* Center: Floating Neon Signposts Along Highway */}
-      <NeonSignposts
-        onSelectDestination={(id) => setActiveDestination(id)}
-        activeDestination={activeDestination}
-      />
+      {/* Checkpoint Arrival Prompt (e.g. Press [E] to Inspect Projects) */}
+      <DestinationPrompt onOpenDestination={(id) => setActiveDestination(id)} />
 
-      {/* Lower Left: Anime DJ Girl Billboard */}
+      {/* Lower Left: Holographic Anime DJ Billboard */}
       <AnimeBillboard />
 
-      {/* Lower Left: GPS Radar Minimap */}
-      <RadarMinimap />
+      {/* Lower Left: Dynamic GPS Radar Minimap */}
+      <RadarMinimap onQuickTravel={handleSelectSection} />
 
-      {/* Lower Right: Digital Speedometer & Control Hints */}
-      <SpeedometerHUD speed={speed} />
+      {/* Lower Right: Digital Speedometer HUD */}
+      <SpeedometerHUD />
 
-      {/* ================= DESTINATION DETAIL MODAL ================= */}
+      {/* Lower Right: On-Screen Touch/Mouse Drive Controls */}
+      <OnScreenDriveControls />
+
+      {/* Destination Content Detail Modal */}
       <DestinationModal
         destination={activeDestination}
         onClose={() => setActiveDestination(null)}

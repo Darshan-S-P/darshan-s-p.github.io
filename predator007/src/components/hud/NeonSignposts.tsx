@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Code2, 
   Briefcase, 
@@ -7,7 +7,7 @@ import {
   GraduationCap, 
   Send 
 } from 'lucide-react';
-import { NAVIGATION_NODES } from '../../data/portfolioData';
+import { GATES, carState } from '../3d/CarStore';
 import type { SectionId } from '../../types';
 
 interface NeonSignpostsProps {
@@ -16,54 +16,54 @@ interface NeonSignpostsProps {
 }
 
 const iconMap: Record<string, React.ReactNode> = {
-  Code2: <Code2 className="w-4 h-4 text-cyan-400" />,
-  Briefcase: <Briefcase className="w-4 h-4 text-cyan-400" />,
-  Settings: <Settings className="w-4 h-4 text-cyan-400 animate-spin-slow" />,
-  User: <User className="w-4 h-4 text-cyan-400" />,
-  GraduationCap: <GraduationCap className="w-4 h-4 text-cyan-400" />,
-  Send: <Send className="w-4 h-4 text-cyan-400" />,
+  Code2: <Code2 className="w-3.5 h-3.5" />,
+  Briefcase: <Briefcase className="w-3.5 h-3.5" />,
+  Settings: <Settings className="w-3.5 h-3.5" />,
+  User: <User className="w-3.5 h-3.5" />,
+  GraduationCap: <GraduationCap className="w-3.5 h-3.5" />,
+  Send: <Send className="w-3.5 h-3.5" />,
 };
 
 export default function NeonSignposts({ onSelectDestination, activeDestination }: NeonSignpostsProps) {
+  const [nearbyId, setNearbyId] = useState<string | null>(null);
+
+  useEffect(() => {
+    return carState.subscribe(() => {
+      setNearbyId(carState.nearbyGate?.id || null);
+    });
+  }, []);
+
+  const handleDriveTo = (id: SectionId) => {
+    carState.driveTo(id);
+    onSelectDestination(id);
+  };
+
   return (
-    <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-      {NAVIGATION_NODES.map((node) => {
-        const isSelected = activeDestination === node.id;
+    <div className="absolute top-20 sm:top-24 left-1/2 -translate-x-1/2 z-20 pointer-events-auto select-none max-w-full px-2">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 p-1.5 sm:p-2 rounded-2xl cyber-glass-cyan border border-cyan-500/40 shadow-neon-cyan backdrop-blur-md">
+        <span className="hidden md:inline font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-wider px-2">
+          DESTINATIONS:
+        </span>
+        {GATES.map((gate) => {
+          const isAtGate = nearbyId === gate.id;
+          const isSelected = activeDestination === gate.id;
 
-        return (
-          <div
-            key={node.id}
-            style={{
-              top: `${node.topPercent}%`,
-              left: `${node.leftPercent}%`,
-            }}
-            className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-auto"
-          >
+          return (
             <button
-              onClick={() => onSelectDestination(node.id)}
-              className={`group relative flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-lg font-mono text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 cursor-pointer select-none ${
-                isSelected
-                  ? 'bg-cyan-500/30 text-white border-2 border-cyan-400 shadow-[0_0_25px_rgba(0,242,254,0.8)] scale-110'
-                  : 'bg-[#09151c]/80 text-cyan-300 hover:text-white border border-cyan-500/50 hover:border-cyan-300 shadow-[0_0_15px_rgba(0,242,254,0.35)] hover:shadow-[0_0_25px_rgba(0,242,254,0.6)] hover:scale-105'
-              } backdrop-blur-md`}
+              key={gate.id}
+              onClick={() => handleDriveTo(gate.id)}
+              className={`flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl font-mono text-[10px] sm:text-xs font-bold tracking-wider uppercase transition-all duration-300 cursor-pointer ${
+                isAtGate || isSelected
+                  ? 'bg-cyan-500 text-black border-cyan-300 shadow-[0_0_15px_#00f2fe] scale-105'
+                  : 'bg-black/50 text-cyan-300 hover:text-white hover:bg-cyan-950/60 border border-cyan-500/40 hover:border-cyan-300'
+              }`}
             >
-              {/* Corner Tech Brackets */}
-              <span className="absolute -top-1 -left-1 w-1.5 h-1.5 border-t border-l border-cyan-300" />
-              <span className="absolute -bottom-1 -right-1 w-1.5 h-1.5 border-b border-r border-cyan-300" />
-
-              {/* Icon */}
-              <span className="group-hover:scale-110 transition-transform">
-                {iconMap[node.icon]}
-              </span>
-
-              {/* Label */}
-              <span className="font-bold glow-text-cyan">
-                {node.label}
-              </span>
+              <span>{iconMap[gate.icon]}</span>
+              <span>{gate.title}</span>
             </button>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
