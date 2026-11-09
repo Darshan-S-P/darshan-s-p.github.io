@@ -61,7 +61,7 @@ export default function ContactSection() {
             <h3 className="text-lg font-bold text-white mb-2">Direct Channels</h3>
 
             <a
-              href="mailto:darshanspdarshu6172@gmail.com"
+              href="mailto:ddarshu260@gmail.com"
               className="flex items-center gap-3.5 text-xs sm:text-sm text-gray-300 hover:text-cyan-300 transition-colors group"
             >
               <div className="p-2.5 rounded-xl bg-white/[0.04] group-hover:bg-cyan-500/20 text-cyan-400 transition-colors">
@@ -69,7 +69,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <div className="text-[10px] text-gray-500 uppercase font-mono">Email</div>
-                <div className="font-mono">darshanspdarshu6172@gmail.com</div>
+                <div className="font-mono">ddarshu260@gmail.com</div>
               </div>
             </a>
 

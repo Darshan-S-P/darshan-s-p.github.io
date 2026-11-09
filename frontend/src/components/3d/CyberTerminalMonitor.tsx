@@ -162,7 +162,7 @@ export default function CyberTerminalMonitor() {
           type: "output",
           text:
             "CONTACT CHANNELS:\n" +
-            "• Email: darshanspdarshu6172@gmail.com\n" +
+            "• Email: ddarshu260@gmail.com\n" +
             "• Phone: +91 8147769141\n" +
             "• LinkedIn: https://linkedin.com/in/darshan-sp\n" +
             "• GitHub: https://github.com/Darshan-S-P\n" +

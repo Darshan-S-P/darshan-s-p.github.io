@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   title: "Software Engineer",
   subtitles: ["AI/ML", "Backend", "Full-Stack"],
   tagline: "Building real-world, scalable systems with AI, high-concurrency backends & high-performance architecture.",
-  email: "darshanspdarshu6172@gmail.com",
+  email: "ddarshu260@gmail.com",
   phone: "+91 8147769141",
   location: "Bengaluru, IN",
   experienceYears: "1+ Years",
