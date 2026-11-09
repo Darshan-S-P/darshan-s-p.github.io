@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #06070c;
+  font-family: 'Share Tech Mono', 'JetBrains Mono', monospace;
+  overflow: hidden;
+}
+
+/* Neon Glow utilities */
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.4);
+}
+
+.glow-text-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.8), 0 0 25px rgba(255, 0, 127, 0.5);
+}
+
+.glow-text-magenta {
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.8), 0 0 20px rgba(217, 70, 239, 0.4);
+}
+
+.glow-text-green {
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.8), 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Cyber CRT Glass effect */
+.cyber-glass-purple {
+  background: rgba(18, 12, 32, 0.72);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.1);
+}
+
+.cyber-glass-cyan {
+  background: rgba(6, 20, 28, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 242, 254, 0.45);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(0, 242, 254, 0.1);
+}
+
+/* Cyberpunk Glitch Typography */
+.glitch-title {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 0.15em;
+  text-shadow: 
+    -2px -2px 0 rgba(0, 242, 254, 0.8),
+    2px 2px 0 rgba(255, 0, 127, 0.8),
+    0 0 30px rgba(0, 242, 254, 0.6);
+}
+
+/* Subtle CRT Scanlines */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
