@@ -142,20 +142,39 @@ export default function TerminalWindow({ isOpen, onToggle, onSelectSection }: Te
       {/* Window Title Bar */}
       <div className="flex items-center justify-between px-3.5 py-2.5 bg-black/40 border-b border-purple-500/30 rounded-t-2xl select-none">
         <div className="flex items-center space-x-2">
-          <button onClick={onToggle} className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-400 border border-red-400" />
-          <button onClick={onToggle} className="w-3 h-3 rounded-full bg-amber-500/80 hover:bg-amber-400 border border-amber-400" />
-          <button className="w-3 h-3 rounded-full bg-emerald-500/80 hover:bg-emerald-400 border border-emerald-400" />
-          <span className="ml-2 font-mono text-xs text-gray-300 flex items-center gap-1.5">
+          <button
+            onClick={onToggle}
+            className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-400 border border-red-300 cursor-pointer shadow-[0_0_8px_rgba(239,68,68,0.8)] transition-transform hover:scale-110"
+            title="Close Terminal"
+          />
+          <button
+            onClick={onToggle}
+            className="w-3.5 h-3.5 rounded-full bg-amber-500 hover:bg-amber-400 border border-amber-300 cursor-pointer transition-transform hover:scale-110"
+            title="Minimize"
+          />
+          <button
+            className="w-3.5 h-3.5 rounded-full bg-emerald-500/80 border border-emerald-400"
+            title="Terminal Active"
+          />
+          <span className="ml-2 font-mono text-xs text-gray-200 flex items-center gap-1.5 font-bold">
             <Terminal className="w-3.5 h-3.5 text-purple-400" />
             darshan@portfolio: ~
           </span>
         </div>
         <div className="flex items-center space-x-1.5 text-gray-400">
-          <button onClick={onToggle} className="p-1 hover:text-white rounded">
-            <Minus className="w-3 h-3" />
+          <button
+            onClick={onToggle}
+            className="p-1 hover:text-white rounded hover:bg-purple-900/40 cursor-pointer transition-colors"
+            title="Minimize"
+          >
+            <Minus className="w-3.5 h-3.5" />
           </button>
-          <button onClick={onToggle} className="p-1 hover:text-white rounded">
-            <X className="w-3 h-3" />
+          <button
+            onClick={onToggle}
+            className="p-1 hover:text-red-400 rounded hover:bg-red-950/40 cursor-pointer transition-colors"
+            title="Close Terminal"
+          >
+            <X className="w-4 h-4" />
           </button>
         </div>
       </div>

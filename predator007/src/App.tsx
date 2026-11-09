@@ -10,17 +10,26 @@ import SpeedometerHUD from './components/hud/SpeedometerHUD';
 import DestinationPrompt from './components/hud/DestinationPrompt';
 import OnScreenDriveControls from './components/hud/OnScreenDriveControls';
 import DestinationModal from './components/modals/DestinationModal';
-import { carState } from './components/3d/CarStore';
+import { carState, GATES } from './components/3d/CarStore';
 import type { SectionId } from './types';
 
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [activeDestination, setActiveDestination] = useState<SectionId | null>(null);
 
-  // Global Keyboard Navigation & Wheel Scroll Driving
+  // Hook auto-arrival callback from CarStore
+  useEffect(() => {
+    carState.onArrival = (gate) => {
+      setActiveDestination(gate.id);
+    };
+    return () => {
+      carState.onArrival = undefined;
+    };
+  }, []);
+
+  // Global Keyboard Navigation & Butter-Smooth Scroll Wheel Driving
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't intercept driving keys if user is actively typing in the terminal input
       const isInputActive = ['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName);
 
       if (e.key === 'Tab') {
@@ -70,20 +79,26 @@ export default function App() {
       if (e.code === 'Space') carState.keys.brake = false;
     };
 
-    // Scroll Wheel Driving (Scroll down = forward down highway, Scroll up = reverse)
+    // Butter-Smooth Scroll Wheel Driving Accumulator
     const handleWheel = (e: WheelEvent) => {
-      // DeltaY > 0 is scroll down: move car forward
-      if (e.deltaY > 0) {
-        carState.speed = Math.max(-32, carState.speed - 2.8);
-      } else {
-        carState.speed = Math.min(12, carState.speed + 2.8);
+      // Allow natural document scrolling inside modal dialog or terminal logs
+      const target = e.target as HTMLElement;
+      if (target?.closest('.overflow-y-auto')) {
+        return;
       }
+
+      e.preventDefault();
+
+      // Delta > 0 (scroll down) = drive forward (-Z)
+      // Delta < 0 (scroll up) = reverse (+Z)
+      const normalizedDelta = Math.sign(e.deltaY) * Math.min(Math.abs(e.deltaY), 80);
+      carState.scrollVelocity += normalizedDelta * 0.36;
       carState.targetGateZ = null;
     };
 
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
-    window.addEventListener('wheel', handleWheel, { passive: true });
+    window.addEventListener('wheel', handleWheel, { passive: false });
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
@@ -93,12 +108,28 @@ export default function App() {
   }, []);
 
   const handleSelectSection = (id: SectionId) => {
-    carState.driveTo(id);
-    setActiveDestination(id);
+    const gate = GATES.find((g) => g.id === id);
+    if (gate && Math.abs(carState.position.z - gate.z) < 14) {
+      // Already at the gate: open details immediately
+      setActiveDestination(id);
+    } else {
+      // Drive to the gate smoothly, arrival callback will open details
+      carState.driveTo(id);
+    }
+  };
+
+  const handleBackgroundClick = () => {
+    // Blur any active input so WASD controls are always ready
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#06070c] crt-overlay select-none">
+    <div
+      onClick={handleBackgroundClick}
+      className="relative w-screen h-screen overflow-hidden bg-[#06070c] crt-overlay select-none"
+    >
       {/* ================= 3D CYBERPUNK DRIVING WORLD ================= */}
       <CyberScene />
 
@@ -112,7 +143,7 @@ export default function App() {
         activeDestination={activeDestination}
       />
 
-      {/* Top Right: Live Telemetry */}
+      {/* Top Right: Live Telemetry & Integrated Car Color Customizer */}
       <SystemStatusHUD />
 
       {/* Top Left: Linux Terminal Window */}
@@ -122,7 +153,7 @@ export default function App() {
         onSelectSection={handleSelectSection}
       />
 
-      {/* Checkpoint Arrival Prompt (e.g. Press [E] to Inspect Projects) */}
+      {/* Checkpoint Arrival Prompt (e.g. Press [E] or Click to Inspect Projects) */}
       <DestinationPrompt onOpenDestination={(id) => setActiveDestination(id)} />
 
       {/* Lower Left: Holographic Anime DJ Billboard */}
@@ -136,6 +167,20 @@ export default function App() {
 
       {/* Lower Right: On-Screen Touch/Mouse Drive Controls */}
       <OnScreenDriveControls />
+
+      {/* Bottom Center: Navigation Controls Hint Bar */}
+      <div className="hidden md:flex absolute bottom-3 left-1/2 -translate-x-1/2 z-10 pointer-events-none items-center gap-3 px-4 py-1.5 rounded-full bg-black/60 border border-cyan-500/30 backdrop-blur-md text-[11px] font-mono text-cyan-200/80">
+        <span className="text-pink-400 font-bold">[W][A][S][D] / Arrows</span>
+        <span>or</span>
+        <span className="text-cyan-400 font-bold">Scroll Wheel</span>
+        <span>to Drive</span>
+        <span className="text-gray-500">•</span>
+        <span className="text-pink-400 font-bold">[E]</span>
+        <span>to Inspect Checkpoint</span>
+        <span className="text-gray-500">•</span>
+        <span className="text-purple-400 font-bold">[TAB]</span>
+        <span>Linux Terminal</span>
+      </div>
 
       {/* Destination Content Detail Modal */}
       <DestinationModal

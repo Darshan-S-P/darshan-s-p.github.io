@@ -1,6 +1,7 @@
 name: CI/CD Pipeline
 
 on:
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab once billing is resolved
   push:
     branches: [ main, master ]
   pull_request:
@@ -53,4 +54,26 @@ jobs:
 
       - name: Build Next.js 14 App
         working-directory: frontend
+        run: npm run build
+
+  predator007-build:
+    name: Predator007 3D World Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: predator007/package-lock.json
+
+      - name: Install Predator007 Dependencies
+        working-directory: predator007
+        run: npm ci
+
+      - name: Build Predator007 App
+        working-directory: predator007
         run: npm run build
